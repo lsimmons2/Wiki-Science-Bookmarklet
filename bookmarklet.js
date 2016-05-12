@@ -1,1 +1,1 @@
-alert('Hi, this is my bookmarklet alert.');
+alert('Hello world, this is my bookmarklet alert.');
