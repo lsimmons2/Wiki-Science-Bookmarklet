@@ -1,1 +1,8 @@
-alert('Hello world, this is my bookmarklet alert, edited on GitHub.');
+reflist = [];
+
+
+refList = document.getElementsByClassName('references').childNodes;
+
+for (var i = 0; i < refList.length; i++) {
+	alert(refList[i].innerHTML);
+}
