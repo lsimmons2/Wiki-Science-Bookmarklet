@@ -3,9 +3,9 @@ var refContent = [];
 
 
 refList = document.getElementsByClassName('references').childNodes;
-console.log(refList);
-/*for (var i = 0; i < refList.length; i++) {
+refListLength = refList.length;
+for (var i = 0; i < refListLength; i++) {
 	refContent[i] = (refList[i].innerHTML);
 }
 
-alert(refContent);*/
+alert(refContent);
