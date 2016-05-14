@@ -1,8 +1,11 @@
 var reflist;
+var refContent = [];
 
 
 refList = document.getElementsByClassName('references').childNodes;
 //alert(refList);
 for (var i = 0; i < refList.length; i++) {
-	alert(refList[i].innerHTML);
+	refContent[i] = (refList[i].innerHTML);
 }
+
+alert(refContent);
