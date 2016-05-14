@@ -1,4 +1,4 @@
-var reflist;
+var reflist = [];
 var refContent = [];
 
 
