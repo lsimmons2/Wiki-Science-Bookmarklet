@@ -1,6 +1,6 @@
 .modal {
 	position: fixed;
-	z-index: 2;
+	z-index: 4;/*Wiki's user toolbar has z-index:3*/
 	top: 10vh;
 	max-width: 80vw;
 	margin: auto;
