@@ -48,4 +48,5 @@ if(number == 0){
 else{
 	alert('Scientific journals used as references for this article(# of times cited):\n' + message);
 }
+/*Just checking that all references were noted*/
 console.log(number);
