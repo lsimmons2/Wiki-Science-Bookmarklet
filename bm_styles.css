@@ -1,8 +1,9 @@
 .modal {
 	position: fixed;
 	z-index: 2;
-	top: 0;
-	left: 0;
+	top: 10vh;
+	max-width: 80vw;
+	margin: auto;
 	overflow: auto;
 	background-color: red;
 }
