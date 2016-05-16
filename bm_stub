@@ -2,4 +2,5 @@ javascript:(function(){
     var script=document.createElement('script');
     script.type='text/javascript';
     script.src='https://rawgit.com/username/repo_name/master/bookmarklet.js?v='+(Math.random()*1000);
-    document.body.appendChild(script);})();
+    document.body.appendChild(script);}
+)();
