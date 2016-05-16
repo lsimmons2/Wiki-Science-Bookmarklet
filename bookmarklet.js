@@ -5,6 +5,8 @@ var jArray = [];
 var jObj = {};
 var jName;
 var message = '';
+var refText;
+var number = 0;
 
 
 
@@ -15,18 +17,15 @@ liList = olElem[0].children;
 /*every liList child - every <li> - is an object */
 /*every <span class="reference-text"> is an HTMLCollection*/
 for (var i = 0; i < liList.length; i++) {
-	iElem = liList[i].getElementsByClassName('reference-text')[0].children[0].getElementsByTagName('i')[0];
-	if (iElem.firstChild.nodeType == 3){
-		jArray[i] = iElem.innerHTML;
-	}
-	else{
-		jArray[i] = iElem.firstChild.innerHTML;
+	refText = liList[i].getElementsByClassName('reference-text')[0];
+	if(refText.getElementsByTagName('i')[0] !== undefined && refText.getElementsByTagName('i')[0].firstChild.nodeType === 3){
+		jArray[i] = refText.getElementsByTagName('i')[0].innerHTML;
 	}
 }
 
-console.log(jArray);
 
 jArray.sort();
+
 
 for (var i = 0; i < jArray.length; i++) {
 	jName = jArray[i];
@@ -40,6 +39,13 @@ for (var i = 0; i < jArray.length; i++) {
 
 for(jn in jObj){
 	message += jn + ' (' + jObj[jn] + ')\n';
+	number += jObj[jn];
 }
 
-alert('jArray used as references for this article(# of times cited):\n' + message);
+if(number == 0){
+	alert('No scientific journals are used as references for this article.')
+}
+else{
+	alert('Scientific journals used as references for this article(# of times cited):\n' + message);
+}
+console.log(number);
