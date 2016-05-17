@@ -7,17 +7,25 @@ var jName;
 var message = '';
 var refText;
 var number = 0;
-var modal;
+var modalText;
 var text;
+var modalCon;
+var x;
 
 var styles = document.createElement('style');
 styles.setAttribute('type', 'text/css');
-styles.innerHTML = '.modal {position: fixed; top: 10vh; left: 10vw; right: 10vh;' +
+styles.innerHTML = '.modalCon {position: fixed; top: 10vh; left: 10vw; right: 10vh;' +
 ' z-index: 4; background-color: white; max-width: 80vw; margin: auto;' +
 'box-shadow: 0 0 10px grey; -webkit-box-shadow: 0 0 10px grey;' +
-'padding: 25px; border-style: solid; border-width: 10px; border-color: #319211;' +
-'border-radius: 15px;}';
+'padding: 40px 25px 50px; border-style: solid; border-width: 10px; border-color: #319211;}' +
+'display: inline;';
 document.getElementsByTagName('head')[0].appendChild(styles);
+
+var xStyles = document.createElement('style');
+xStyles.setAttribute('type', 'text/css');
+xStyles.innerHTML = '.x {position: absolute; top: 5px; right: 15px; font-weight: bold; font-size: 25px;}';
+document.getElementsByTagName('head')[0].appendChild(xStyles);
+
 
 
 /*olElem is an HTMLCollection of one node- the <ol>*/
@@ -61,10 +69,21 @@ else{
 }
 
 
-modal = document.createElement('div');
-modal.className = 'modal';
-modal.appendChild(text);
-console.log(modal);
-document.body.appendChild(modal);
+modalCon = document.createElement('div');
+modalText = document.createElement('div');
+x = document.createElement('span');
+modalCon.className = 'modalCon';
+modalText.className = 'modalText';
+x.className = 'x';
+x.innerHTML = 'x';
+modalText.appendChild(text);
+modalCon.appendChild(x);
+modalCon.appendChild(modalText);
+document.body.appendChild(modalCon);
+
+x.onclick = function() {
+	modalCon.style.display = 'none';
+};
+
 
 console.log(number);
