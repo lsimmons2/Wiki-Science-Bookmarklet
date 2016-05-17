@@ -4,7 +4,8 @@
 	top: 10vh;
 	max-width: 80vw;
 	margin: auto;
-	top: 0;
 	overflow: auto;
-	background-color: red;
+	background-color: white;
+	border-color: #319211;
+
 }
