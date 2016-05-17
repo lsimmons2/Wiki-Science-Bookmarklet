@@ -4,6 +4,8 @@
 	top: 10vh;
 	max-width: 80vw;
 	margin: auto;
+	top: 0;
+	left: 0;
 	overflow: auto;
 	background-color: red;
 }
