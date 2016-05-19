@@ -1,4 +1,4 @@
-.modalCon {
+#modalCon {
 	position: fixed;
 	top: 10vh;
 	left: 10vw;
@@ -13,7 +13,7 @@
 	border-color: #319211;
 }
 
-.x {
+#x {
 	position: absolute;
 	top: 5px;
 	right: 15px;
@@ -21,11 +21,11 @@
 	font-size: 25px;
 }
 
-.x:hover {
+#x:hover {
 	cursor: pointer;
 }
 
-.header {
+#header {
 	font-weight: bold;
 	font-size: 125%;
 }
