@@ -11,6 +11,19 @@ var modalText;
 var text;
 var modalCon;
 var x;
+var jArray = [];
+var JSONArray = [];
+var meanIF;
+var numerator;
+var denominator = 0;
+var availIF;
+
+
+xmlHttp = new XMLHttpRequest();
+xmlHttp.open('GET', 'https://rawgit.com/lsimmons2/Wiki-Science-Bookmarklet/master/journals.json', false);
+xmlHttp.send(null);
+JSONArray = JSON.parse(xmlHttp.responseText);
+
 
 var styles = document.createElement('style');
 styles.setAttribute('type', 'text/css');
@@ -55,17 +68,37 @@ for (var i = 0; i < jArray.length; i++) {
 	}
 }
 
+
 for(jn in jObj){
-	message += jn + ' (' + jObj[jn] + ')\n';
+	var jOutput = JSONArray.filter(function(item){
+		return (item.jName==jn);
+	} );
+	var jTimes = parseFloat(jObj[jn]);
+	if(jOutput.length == 1){
+		if(jOutput[0].if1415 != '\u00a0'){
+			availIF = parseFloat(jOutput[0].if1415);
+		}
+		else{
+			availIF = parseFloat(jOutput[0].if13);
+		}
+		message += jn + ' (' + jObj[jn] + ', '+ availIF + ')\n';
+		numerator = availIF * jTimes;
+		numerator += numerator;
+		denominator += jTimes;
+	}
 	number += jObj[jn];
 }
 
 
+
+console.log(numerator, denominator);
 if(number == 0){
 	text = document.createTextNode('No scientific journals are used as references for this article.');
 }
 else{
-	text = document.createTextNode('Scientific journals used as references for this article(# of times cited):\n' + message);
+	meanIF = numerator/denominator;
+	meanIF = meanIF.toFixed(2);
+	text = document.createTextNode('Scientific journals used as references for this article(# of times cited, IF):\n' + message + '\n Average IF: ' + meanIF);
 }
 
 
@@ -80,6 +113,7 @@ modalText.appendChild(text);
 modalCon.appendChild(x);
 modalCon.appendChild(modalText);
 document.body.appendChild(modalCon);
+
 
 x.onclick = function() {
 	modalCon.style.display = 'none';
