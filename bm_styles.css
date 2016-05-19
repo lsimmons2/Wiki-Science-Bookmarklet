@@ -3,7 +3,7 @@
 	top: 10vh;
 	left: 10vw;
 	right: 10vw;
-	z-index: 4;
+	z-index: 2;
 	background-color: white;
 	box-shadow: 0 0 10px grey;
 	-webkit-box-shadow: 0 0 10px grey;
@@ -23,4 +23,13 @@
 
 .x:hover {
 	cursor: pointer;
+}
+
+.header {
+	font-weight: bold;
+	font-size: 125%;
+}
+
+#IF {
+	font-weight: bold;
 }
