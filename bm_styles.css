@@ -1,11 +1,26 @@
-.modal {
+.modalCon {
 	position: fixed;
-	z-index: 4;/*Wiki's user toolbar has z-index:3*/
 	top: 10vh;
-	max-width: 80vw;
-	margin: auto;
-	overflow: auto;
-	background-color: blue;
+	left: 10vw;
+	right: 10vw;
+	z-index: 4;
+	background-color: white;
+	box-shadow: 0 0 10px grey;
+	-webkit-box-shadow: 0 0 10px grey;
+	padding: 40px 25px 50px;
+	border-style: solid;
+	border-width: 10px;
 	border-color: #319211;
-	border-width: 4px;
+}
+
+.x {
+	position: absolute;
+	top: 5px;
+	right: 15px;
+	font-weight: bold;
+	font-size: 25px;
+}
+
+.x:hover {
+	cursor: pointer;
 }
