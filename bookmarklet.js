@@ -17,6 +17,21 @@ var meanIF;
 var numerator;
 var denominator = 0;
 var availIF;
+var textChange;
+var liArray = [];
+var jUl;
+var header;
+var IFElem;
+var styles;
+var rando;
+
+modalText = document.createElement('div');
+modalCon = document.createElement('div');
+modalCon.id = 'modalCon';
+x = document.createElement('span');
+x.id = 'x';
+x.innerHTML = 'x';
+
 
 
 xmlHttp = new XMLHttpRequest();
@@ -25,20 +40,12 @@ xmlHttp.send(null);
 JSONArray = JSON.parse(xmlHttp.responseText);
 
 
-var styles = document.createElement('style');
+styles = document.createElement('link');
+styles.setAttribute('rel', 'stylesheet');
 styles.setAttribute('type', 'text/css');
-styles.innerHTML = '.modalCon {position: fixed; top: 10vh; left: 10vw; right: 10vh;' +
-' z-index: 4; background-color: white; max-width: 80vw; margin: auto;' +
-'box-shadow: 0 0 10px grey; -webkit-box-shadow: 0 0 10px grey;' +
-'padding: 40px 25px 50px; border-style: solid; border-width: 10px; border-color: #319211;}' +
-'display: inline;';
+rando = Math.random()*1000;
+styles.setAttribute('href', 'https://rawgit.com/lsimmons2/Wiki-Science-Bookmarklet/master/bm_styles.css?v='+rando);
 document.getElementsByTagName('head')[0].appendChild(styles);
-
-var xStyles = document.createElement('style');
-xStyles.setAttribute('type', 'text/css');
-xStyles.innerHTML = '.x {position: absolute; top: 5px; right: 15px; font-weight: bold; font-size: 25px;}';
-document.getElementsByTagName('head')[0].appendChild(xStyles);
-
 
 
 /*olElem is an HTMLCollection of one node- the <ol>*/
@@ -53,8 +60,6 @@ for (var i = 0; i < liList.length; i++) {
 		jArray[i] = refText.getElementsByTagName('i')[0].innerHTML;
 	}
 }
-
-
 jArray.sort();
 
 
@@ -81,7 +86,7 @@ for(jn in jObj){
 		else{
 			availIF = parseFloat(jOutput[0].if13);
 		}
-		message += jn + ' (' + jObj[jn] + ', '+ availIF + ')\n';
+		liArray.push(jn + ' (' + jObj[jn] + ', '+ availIF + ')');
 		numerator = availIF * jTimes;
 		numerator += numerator;
 		denominator += jTimes;
@@ -90,26 +95,33 @@ for(jn in jObj){
 }
 
 
-
-console.log(numerator, denominator);
 if(number == 0){
-	text = document.createTextNode('No scientific journals are used as references for this article.');
+	header = document.createElement('h');
+	header.innerHTML= 'No scientific journals are used as references for this article.';
+	modalText.appendChild(header);
 }
 else{
+	jUl = document.createElement('ul');
+	for (var i = 0; i < liArray.length; i++) {
+		var liElem = document.createElement('li');
+		liElem.innerHTML = liArray[i];
+		jUl.appendChild(liElem);
+	}
+	header = document.createElement('h');
+	header.id = 'header';
+	header.innerHTML = 'Scientific journals used as references for this article(# of times cited, impact factor):';
+	modalText.appendChild(header);
+	modalText.appendChild(jUl);
+
 	meanIF = numerator/denominator;
-	meanIF = meanIF.toFixed(2);
-	text = document.createTextNode('Scientific journals used as references for this article(# of times cited, IF):\n' + message + '\n Average IF: ' + meanIF);
+	meanIF = meanIF.toFixed(3);
+	IFElem = document.createElement('span');
+	IFElem.id = 'IF';
+	IFElem.innerHTML = 'Average impact factor of all journal references: ' + meanIF;
+	modalText.appendChild(IFElem);
 }
 
 
-modalCon = document.createElement('div');
-modalText = document.createElement('div');
-x = document.createElement('span');
-modalCon.className = 'modalCon';
-modalText.className = 'modalText';
-x.className = 'x';
-x.innerHTML = 'x';
-modalText.appendChild(text);
 modalCon.appendChild(x);
 modalCon.appendChild(modalText);
 document.body.appendChild(modalCon);
