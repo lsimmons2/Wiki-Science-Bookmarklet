@@ -1,2 +1,6 @@
 # Wiki-Science-Bookmarklet
-Developing my first bookmarklet. Not totally sure what I want it to do yet, but would like it to evaluate the popularity or legitimacy (if possible) of a  Wikipedia article on a scientific topic. Could evaluate each reference's popularity (with something like PageRank?) or if it's a journal, its impact factor. Work in progress.
+This bookmarklet evaluates the popularity of the subject of a scientific Wikipedia article. The bookmarklet finds the article’s references from scientific journals and calculates a mean impact factor based on the journal that each of these references was published in.
+
+Note that the bookmarklet still misses some of the references due to differences in how journal names are written in Wikipedia HTML vs. how they are written in the database that was scraped (e.g. 'Int. Journal of Dev. Bio.' in HTML and 'International Journal of Developmental Biology' in database).
+
+To use, create a new bookmark, paste the code in `bm_stub` in the bookmark's URL field, and click the bookmark when on a Wikipedia page of your choosing.
