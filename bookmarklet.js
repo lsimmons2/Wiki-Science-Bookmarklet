@@ -112,7 +112,7 @@ AND APPENDS header, jUl, IFElem AS CHILDREN OF modalText*/
 if(numerator2 == 0){
 	header = document.createElement('h');
 	header.id = 'header';
-	header.innerHTML= 'Woops! Either there are no scientific journal articles used as references for this Wikipedia article, or this still doesn\'t work.';
+	header.innerHTML= 'Woops! Either there are no scientific journal articles used as references for this Wikipedia article, or this bookmarklet has failed.';
 	modalText.appendChild(header);
 }
 else{
