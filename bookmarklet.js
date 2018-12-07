@@ -28,7 +28,7 @@ var styles = document.createElement('link');
 styles.setAttribute('rel', 'stylesheet');
 styles.setAttribute('type', 'text/css');
 var rando = Math.random()*1000;
-styles.setAttribute('href', 'https://rawgit.com/lsimmons2/Wiki-Science-Bookmarklet/master/bm_styles.css?v='+rando);
+styles.setAttribute('href', 'https://cdn.jsdelivr.net/gh/lsimmons2/Wiki-Science-Bookmarklet/bm_styles.css?v='+rando);
 document.getElementsByTagName('head')[0].appendChild(styles);
 
 
